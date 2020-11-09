@@ -1,8 +1,10 @@
 import { Box, Button, Flex, Heading, Input, Text } from "@chakra-ui/core";
+import Statistics from "../components/statistics";
 
 export default function TeForm() {
   return (
-    <Flex flexDirection="row" justifyContent="center" paddingTop="1rem">
+    <Flex flexDirection="column" alignItems="center" paddingTop="1rem">
+      <Statistics />
       <Flex
         borderWidth="1px"
         borderRadius="8px"
