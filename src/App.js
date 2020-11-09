@@ -1,7 +1,12 @@
-function App() {
+import { CSSReset, ThemeProvider } from "@chakra-ui/core";
+
+function App({ children }) {
   return (
     <div>
-      <p>Text</p>
+      <ThemeProvider>
+        <CSSReset />
+        {children}
+      </ThemeProvider>
     </div>
   );
 }
