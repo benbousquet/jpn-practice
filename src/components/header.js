@@ -1,14 +1,22 @@
-import { Box, Flex, Text } from "@chakra-ui/core";
+import {
+  Flex,
+  Icon,
+  Text,
+  useColorMode,
+  Link as UILink,
+} from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 
 export default function Header() {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
     <Flex
       as="box"
       justifyContent="center"
       padding="1.5rem"
-      bg="teal.500"
-      color="white"
+      borderBottom="1px"
+      borderColor="grey"
     >
       <Flex
         as="nav"
@@ -23,6 +31,9 @@ export default function Header() {
         <Text>
           <Link to="/teform">Te Form Practice</Link>
         </Text>
+        <UILink onClick={() => toggleColorMode()}>
+          <Icon name="moon" size="24px" />
+        </UILink>
       </Flex>
     </Flex>
   );

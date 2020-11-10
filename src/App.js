@@ -1,11 +1,18 @@
-import { CSSReset, ThemeProvider } from "@chakra-ui/core";
+import {
+  ColorModeProvider,
+  CSSReset,
+  theme,
+  ThemeProvider,
+} from "@chakra-ui/core";
 
 function App({ children }) {
   return (
     <div>
-      <ThemeProvider>
-        <CSSReset />
-        {children}
+      <ThemeProvider theme={theme}>
+        <ColorModeProvider>
+          <CSSReset />
+          {children}
+        </ColorModeProvider>
       </ThemeProvider>
     </div>
   );
