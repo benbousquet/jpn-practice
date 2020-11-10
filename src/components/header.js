@@ -8,6 +8,7 @@ import {
 import { Link } from "react-router-dom";
 
 export default function Header() {
+  // eslint-disable-next-line no-unused-vars
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (

@@ -11,7 +11,9 @@ import {
 } from "@chakra-ui/core";
 
 export default function Statistics(props) {
+  // eslint-disable-next-line no-unused-vars
   let [score, setScore] = props.score;
+  // eslint-disable-next-line no-unused-vars
   let [history, setHistory] = props.history;
   let [scorePercentage, setScorePercentage] = useState();
   let [netChange, setNetChange] = useState();

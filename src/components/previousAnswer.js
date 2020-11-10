@@ -2,6 +2,7 @@ import { Box, Heading } from "@chakra-ui/core";
 import AnswerAnalysis from "./answerAnalysis";
 
 export default function PreviousAnswer(props) {
+  // eslint-disable-next-line no-unused-vars
   let [history, setHistory] = props.history;
 
   let calculateBoxShadow = () => {
