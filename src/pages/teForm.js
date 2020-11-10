@@ -15,7 +15,9 @@ export default function TeForm() {
         Toggle Stats
       </Button>
       <TeFormApp score={[score, setScore]} history={[history, setHistory]} />
-      <PreviousAnswer history={[history, setHistory]} />
+      <Collapse isOpen={history.length > 0}>
+        <PreviousAnswer history={[history, setHistory]} />
+      </Collapse>
       <Collapse isOpen={showStats} marginTop="1rem">
         <Statistics score={[score, setScore]} history={[history, setHistory]} />
       </Collapse>

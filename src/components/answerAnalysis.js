@@ -43,7 +43,7 @@ export default function AnswerAnalysis(props) {
 
   let analysis = (dataPoint) => {
     // if(dataPoint.)
-    let analysisText = `You answered '${dataPoint.answer}', however the correct answer was ${dataPoint.currentQuestion.te} which is a '${dataPoint.currentQuestion.type}' verb`;
+    let analysisText = `You answered '${dataPoint.answer}', however the correct answer was '${dataPoint.currentQuestion.te}' which is a '${dataPoint.currentQuestion.type}' verb`;
 
     return (
       <Box>
@@ -83,7 +83,8 @@ export default function AnswerAnalysis(props) {
           : "incorrect, lets see what you did wrong."}
       </Text>
 
-      {analysis(history[history.length - 1])}
+      {history[history.length - 1].result === "incorrect" &&
+        analysis(history[history.length - 1])}
     </Box>
   );
 }
