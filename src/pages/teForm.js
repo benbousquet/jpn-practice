@@ -17,7 +17,7 @@ export default function TeForm() {
 
   return (
     <Flex flexDirection="column" alignItems="center" paddingTop="1rem">
-      <Flex flexDirection="row" width="30rem">
+      <Flex flexDirection="row" width="30rem" justifyContent="space-evenly">
         <Button onClick={() => setShowStats(!showStats)} marginBottom="1rem">
           Toggle Stats
         </Button>
