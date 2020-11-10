@@ -9,11 +9,20 @@ export default function TeForm() {
   let [score, setScore] = useState({ correct: 0, incorrect: 0 });
   // {question, answer, result}
   let [history, setHistory] = useState([]);
+
+  let clearStats = () => {
+    setHistory([]);
+    setScore({ correct: 0, incorrect: 0 });
+  };
+
   return (
     <Flex flexDirection="column" alignItems="center" paddingTop="1rem">
-      <Button onClick={() => setShowStats(!showStats)} marginBottom="1rem">
-        Toggle Stats
-      </Button>
+      <Flex flexDirection="row" width="30rem">
+        <Button onClick={() => setShowStats(!showStats)} marginBottom="1rem">
+          Toggle Stats
+        </Button>
+        <Button onClick={() => clearStats()}>Clear Stats</Button>
+      </Flex>
       <TeFormApp score={[score, setScore]} history={[history, setHistory]} />
       <Collapse isOpen={history.length > 0}>
         <PreviousAnswer history={[history, setHistory]} />
