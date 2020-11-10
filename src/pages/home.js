@@ -1,4 +1,4 @@
-import { Box, Button, Heading, Text } from "@chakra-ui/core";
+import { Box, Heading, Text } from "@chakra-ui/core";
 
 export default function Home() {
   return (

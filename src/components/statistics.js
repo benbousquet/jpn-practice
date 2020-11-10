@@ -54,8 +54,6 @@ export default function Statistics(props) {
     }
     let current = history.length - 1;
     let streak = 0;
-    debugger;
-    console.log(history[current].result);
     while (current >= 0 && history[current].result !== "incorrect") {
       streak++;
       current--;

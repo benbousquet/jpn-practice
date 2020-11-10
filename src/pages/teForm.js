@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, Collapse, Flex } from "@chakra-ui/core";
 import Statistics from "../components/statistics";
 import TeFormApp from "../components/teFormApp";
+import PreviousAnswer from "../components/previousAnswer";
 
 export default function TeForm() {
   let [showStats, setShowStats] = useState(true);
@@ -14,6 +15,7 @@ export default function TeForm() {
         Toggle Stats
       </Button>
       <TeFormApp score={[score, setScore]} history={[history, setHistory]} />
+      <PreviousAnswer history={[history, setHistory]} />
       <Collapse isOpen={showStats} marginTop="1rem">
         <Statistics score={[score, setScore]} history={[history, setHistory]} />
       </Collapse>

@@ -5,7 +5,7 @@ import questionBank from "../data/teFormQuestionBank";
 export default function TeFormApp(props) {
   let [score, setScore] = props.score;
   let [history, setHistory] = props.history;
-  // {type, index}
+  // {type, dict, te}
   let [currentQuestion, setCurrentQuestion] = useState({});
   let [answer, setAnswer] = useState("");
 
@@ -26,7 +26,10 @@ export default function TeFormApp(props) {
     const questionIndex = Math.floor(
       Math.random() * Math.floor(questionBank[category].length)
     );
-    setCurrentQuestion(questionBank[category][questionIndex]);
+    setCurrentQuestion({
+      ...questionBank[category][questionIndex],
+      type: category,
+    });
   };
 
   let checkAnswer = (e) => {
@@ -61,6 +64,7 @@ export default function TeFormApp(props) {
 
   return (
     <Flex
+      marginBottom="2rem"
       borderWidth="1px"
       borderRadius="8px"
       width="45rem"
