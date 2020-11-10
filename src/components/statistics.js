@@ -30,6 +30,8 @@ export default function Statistics(props) {
     setScorePercentage(((score.correct / total) * 100).toFixed(4));
     setNetChange(calculateNetChange());
     setCurrentStreak(calculateCurrentStreak());
+    // I might fix later
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score]);
 
   let calculateNetChange = () => {
