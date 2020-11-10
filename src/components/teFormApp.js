@@ -4,12 +4,19 @@ import questionBank from "../data/teFormQuestionBank";
 
 export default function TeFormApp(props) {
   let [score, setScore] = props.score;
+  let [history, setHistory] = props.history;
   // {type, index}
   let [currentQuestion, setCurrentQuestion] = useState({});
   let [answer, setAnswer] = useState("");
 
   let handleChange = (e) => {
     setAnswer(e.target.value);
+  };
+
+  let handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      checkAnswer(e);
+    }
   };
 
   let generateQuestion = () => {
@@ -25,11 +32,25 @@ export default function TeFormApp(props) {
   let checkAnswer = (e) => {
     if (currentQuestion.te === answer) {
       setScore({ correct: score.correct + 1, incorrect: score.incorrect });
-      generateQuestion();
-      return;
+      let newHistory = [...history];
+      newHistory.push({
+        currentQuestion,
+        answer,
+        result: "correct",
+      });
+      setHistory(newHistory);
+    } else {
+      setScore({ correct: score.correct, incorrect: score.incorrect + 1 });
+      let newHistory = [...history];
+      newHistory.push({
+        currentQuestion: currentQuestion,
+        answer: answer,
+        result: "incorrect",
+      });
+      setHistory(newHistory);
     }
-    setScore({ correct: score.correct, incorrect: score.incorrect + 1 });
     generateQuestion();
+    setAnswer("");
   };
 
   // componentDidMount-ish?
@@ -57,6 +78,7 @@ export default function TeFormApp(props) {
           width="15rem"
           value={answer}
           onChange={handleChange}
+          onKeyDown={handleKeyPress}
         />
         <Button onClick={checkAnswer}>Submit</Button>
       </Flex>
